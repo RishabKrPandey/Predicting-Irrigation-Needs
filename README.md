@@ -43,6 +43,14 @@ To crack open the "black box" of the model and understand exactly what drives th
 - The model emphasizes field-level conditions and precision agriculture factors over generalized climatic variables.
 - SHAP explainability helped identify the most impactful agricultural features, improving model interpretability and trustworthiness.
 
+## 🗄️ Dataset
+
+The environmental and soil metric data used to train this model was sourced from Kaggle. You can explore the original dataset, including full feature descriptions and data distributions, here: 
+
+🔗 **[Insert Kaggle Dataset Title Here](https://www.kaggle.com/competitions/playground-series-s6e4/overview)**
+
+*(Note: To run this notebook locally, download the dataset from the Kaggle link above and place the `.csv` file inside a `data/` folder at the root of this repository.)*
+
 ## 🔮 Future Work
 
 * **Architectural Comparisons:** Experiment with deep learning approaches, specifically evaluating how different neural network architectures perform on this tabular data. I plan to explore how tweaking learnable parameters and adjusting dropout effects might impact the model's variance compared to the current LightGBM baseline.
