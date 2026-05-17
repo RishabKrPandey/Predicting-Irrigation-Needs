@@ -26,22 +26,28 @@ The core of this project is a robust classification model built to handle tabula
 2. **Model Training:** Implemented a LightGBM classifier. Gradient boosting was selected as the primary baseline due to its historical superiority in handling complex, non-linear relationships in tabular datasets without requiring extensive feature scaling.
 3. **Validation Strategy:** Employed a 5-fold Stratified Cross-Validation approach to prevent overfitting and ensure the model generalizes well to unseen data.
 
-## 🧠 Interpretability & Feature Importance
+## 🧠 Model Evaluation & Interpretability
 
-To crack open the "black box" of the model and understand exactly what drives the predictions, SHAP (SHapley Additive exPlanations) values were calculated. 
+To prove the model's reliability and understand its underlying logic, we evaluated both its performance distribution and its feature decision hierarchy.
+
+### 1. Performance Robustness (Confusion Matrix)
+
+<img width="549" height="455" alt="image" src="https://github.com/user-attachments/assets/0a9c528c-ecbf-4b73-9c07-c126bab2c979" />
+
+The confusion matrix demonstrates the model's robustness across all three irrigation classes (Low, Medium, High). 
+* **Handling Imbalance:** Thanks to the `class_weight='balanced'` parameter, the model performs exceptionally well across the board, proving it doesn't just default to the majority class.
+* **Minimizing Critical Errors:** The matrix shows a strong diagonal (True Positives) and extremely low values in the far corners. This means the model rarely makes catastrophic agricultural mistakes—like predicting a "Low" water need when the crops actually have a "High" need.
+
+### 2. Decision Logic (SHAP Feature Importance)
 
 <img width="884" height="568" alt="image" src="https://github.com/user-attachments/assets/78f5a807-2b9b-4274-a789-5f2e9a8b493a" />
 
-## Key Insights from SHAP Analysis
+While the confusion matrix proves the model works, the SHAP (SHapley Additive exPlanations) analysis proves *why* it works. The top drivers for the model are:
+1. **Crop Growth Stage (+2.73):** The biological phase of the crop dictates baseline water needs.
+2. **Soil Moisture (+2.34):** The current water retention in the ground.
+3. **Mulching Used (+1.29):** A physical tactic that drastically reduces evaporation.
 
-- Crop Growth Stage emerged as the most influential factor affecting the model’s predictions, highlighting the importance of stage-specific crop management.
-- Soil Moisture showed a strong impact on predictions, indicating that real-time soil water availability is critical for accurate agricultural decision-making.
-- Mulching Practices significantly improved model outcomes, suggesting their effectiveness in conserving soil moisture and reducing environmental stress.
-- Wind Speed and Temperature were important environmental variables influencing crop conditions and irrigation requirements.
-- Rainfall had relatively lower importance compared to soil moisture, implying that retained soil water matters more than total rainfall received.
-- Humidity and Previous Irrigation contributed moderately, while Water Source had minimal influence on predictions.
-- The model emphasizes field-level conditions and precision agriculture factors over generalized climatic variables.
-- SHAP explainability helped identify the most impactful agricultural features, improving model interpretability and trustworthiness.
+**Model Trust:** By prioritizing biological metrics and soil retention over basic daily weather data (like Temperature or Wind Speed), the LightGBM classifier proves it has learned genuine, real-world agronomic principles rather than memorizing dataset noise.
 
 ## 🗄️ Dataset
 
