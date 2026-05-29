@@ -53,7 +53,7 @@ While the confusion matrix proves the model works, the SHAP (SHapley Additive ex
 
 The environmental and soil metric data used to train this model was sourced from Kaggle. You can explore the original dataset, including full feature descriptions and data distributions, here: 
 
-🔗 **[Insert Kaggle Dataset Title Here](https://www.kaggle.com/competitions/playground-series-s6e4/overview)**
+🔗 **[Kaggle Dataset](https://www.kaggle.com/competitions/playground-series-s6e4/overview)**
 
 *(Note: To run this notebook locally, download the dataset from the Kaggle link above and place the `.csv` file inside a `data/` folder at the root of this repository.)*
 
