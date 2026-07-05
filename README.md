@@ -4,7 +4,7 @@ This repository contains a machine learning pipeline designed to predict crop ir
 
 ## 🚀 Project Overview
 
-The core of this project is a robust classification model built to handle tabular environmental data. It leverages gradient-boosted trees and explainable AI techniques to not only make accurate predictions but also provide insights into *why* those predictions are made.
+The core of this project is a robust classification model built to handle tabular environmental data. It leverages LightGBM and explainable AI techniques to not only make accurate predictions but also provide insights into *why* those predictions are made.
 
 **Key Highlights:**
 * **Algorithm:** LightGBM (LGBMClassifier) optimized for tabular data efficiency.
